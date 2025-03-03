@@ -23,7 +23,8 @@ def about():
 def contact():
     form = MyForm()
     if form.validate_on_submit():
-        msg=Message(subject=form.subject.data, sender=form.email.data, recipients=["forleizure@gmail.com"], body=f"From:{form.name.data} <{form.email.data}>\n\n{form.message.data}")
+        msg=Message(subject=form.subject.data, sender=form.email.data, recipients=["forleizure@gmail.com"])
+        msg.body=f"Message from {form.name.data} <{form.email.data}>\n\n{form.message.data}"
         mail.send(msg)
         flash("Your message ws sent successfully", "success")
         return redirect(url_for("contact"))
