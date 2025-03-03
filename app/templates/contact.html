@@ -1,0 +1,47 @@
+{% extends "base.html"%}
+
+{% block content %}
+<div class="container">
+    <h2>Contact Form</h2>
+    <hr>
+    <p>Fill in this form to contact the site owners.</p>
+    <form action="" method="POST">
+        {{form.csrf_token}}
+
+        <div>
+            {{form.name.label}}
+            <span style="color:red">(Required)</span>
+            <br>
+            <p>Please enter your full name</p> <br>
+            {{form.name}}
+        </div>
+
+        <div>
+            {{form.email.label}}
+            <span style="color:red">(Required)</span>
+            <br>
+            <p>Please enter your e-mail address</p> <br>
+            {{form.email}}
+        </div>
+
+        <div>
+            {{form.subject.label}}
+            <span style="color:red">(Required)</span>
+            <br>
+            <p>Please enter the subject for your message</p> <br>
+            {{form.subject}}
+        </div>
+
+        <div>
+            {{form.message.label}}
+            <span style="color:red">(Required)</span>
+            <br>
+            <p>Please enter the message you would like to send</p> <br>
+            {{form.message}}
+        </div>
+
+        <div>
+            {{form.send}}
+        </div>
+    </form>
+</div>
